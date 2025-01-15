@@ -109,3 +109,16 @@ rl.on("line", function (line) {
     console.log(result.trim());
   }
 });
+
+// 문자열 반복해서 출력
+rl.on("line", function (line) {
+  input = line.split(" ");
+}).on("close", function () {
+  const inputStr = input[0];
+  const reps = Number(input[1]);
+  const result = [];
+  for (let i = 0; i < reps; i++) {
+    result.push(inputStr);
+  }
+  console.log(result.join(""));
+});
