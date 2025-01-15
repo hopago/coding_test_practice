@@ -1,5 +1,5 @@
 // 1. 대소문자 바꿔 출력하기
-import readline from "readline";
+const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -82,4 +82,30 @@ rl.on("line", function (line) {
   }
 
   console.log(result.join(""));
+});
+
+// 특수문자 출력
+rl.on("close", function () {
+  console.log("!@#$%^&*(\\'\"<>?:;");
+});
+
+// 덧셈식 출력
+rl.on("line", function (line) {
+  input = line.split(" ");
+}).on("close", function () {
+  console.log(
+    `${input[0]} + ${input[1]} = ${Number(input[0]) + Number(input[1])}`
+  );
+});
+
+// 문자열 붙여서 출력
+rl.on("line", function (line) {
+  input = line.split(" ");
+}).on("close", function () {
+  str1 = input[0];
+  str2 = input[1];
+  if (1 <= str1.length && str2.length <= 10) {
+    const result = input.join("");
+    console.log(result.trim());
+  }
 });
